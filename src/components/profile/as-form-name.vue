@@ -83,13 +83,14 @@
 <style lang="stylus">
   form#profile-name
     animation-name: slide-in-left
+    margin: auto;
     &.complete
       animation-name: slide-out-right
     fieldset
-      margin-bottom: base-line
+      margin-bottom: 10px
     input#first-name
       width: 40%
-      margin-right: base-line
+      margin-right: 10px
     input#last-name
       width: 40%
     menu

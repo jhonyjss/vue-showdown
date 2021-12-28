@@ -62,8 +62,9 @@
       margin: 0
     form
     footer
-      padding: base-line
+      padding: 10px
       padding-top: 0
+      margin: auto;
     & > footer > button
       opacity: 0.5
       &:hover
@@ -73,5 +74,5 @@
         align-self: center
       header
         width: 29rem
-        margin: base-line
+        margin: 0
 </style>

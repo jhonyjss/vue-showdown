@@ -20,7 +20,7 @@
     },
     computed: {
       is_production() {
-        return process.env.NODE_ENV === 'production'
+        return import.meta.env.MODE === 'production'
       }
     },
     async created() {
@@ -29,13 +29,14 @@
         await set('firebase-keys', await response.json())
       } else {
         const keys = {
-          apiKey: process.env.VUE_APP_API_KEY,
-          authDomain: process.env.VUE_APP_AUTH_DOMAIN,
-          databaseUrl: process.env.VUE_APP_DATABASE_URL,
-          projectId: process.env.VUE_APP_PROJECT_ID,
-          storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
-          messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID
+          apiKey: import.meta.env.VITE_APP_API_KEY,
+          authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
+          databaseUrl: import.meta.env.VITE_APP_DATABASE_URL,
+          projectId: import.meta.env.VITE_APP_PROJECT_ID,
+          storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET,
+          messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID
         }
+        console.log('keys', keys)
         await set('firebase-keys', keys)
       }
       firebase.initializeApp(await get('firebase-keys'))
@@ -66,16 +67,14 @@
   }
 </script>
 <style src="@/style/index.styl" lang="stylus"></style>
-<style lang="stylus">
+<style lang="stylus" scoped>
   main
-    border: (base-line / 16) solid transparent
-    border-radius (base-line / 16)
-    &.offline
-      border-color: yellow
-    &.working
-      border-color: green
-      animation-name: pulsing
-      animation-duration: 5s
-      animation-delay: 200ms
-      animation-iteration-count: infinite
+      &.offline
+        border-color: yellow
+      &.working
+        border-color: green
+        animation-name: pulsing
+        animation-duration: 5s
+        animation-delay: 200ms
+        animation-iteration-count: infinite
 </style>

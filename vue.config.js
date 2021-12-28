@@ -1,5 +1,5 @@
 const path = require('path')
-process.env.VUE_APP_VERSION = require('./package.json').version
+import.meta.env.VUE_APP_VERSION = require('./package.json').version
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
